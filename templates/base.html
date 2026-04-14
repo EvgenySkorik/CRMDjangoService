@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CRM Система{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>CRM Система</h1>
+            <nav>
+                <a href="{% url 'users:dashboard' %}">Главная</a>
+                <a href="{% url 'services:list' %}">Услуги</a>
+                <a href="{% url 'users:logout' %}">Выйти ({{ user.username }})</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>© {% now "Y" %} CRM Система</p>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

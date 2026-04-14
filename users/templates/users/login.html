@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div id="content-main">
+    <h2>Вход в CRM систему</h2>
+    
+    <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <label for="id_username">Имя пользователя:</label>
+            <input type="text" name="username" autofocus required id="id_username">
+        </div>
+        
+        <div class="form-row">
+            <label for="id_password">Пароль:</label>
+            <input type="password" name="password" required id="id_password">
+        </div>
+        
+        <div class="submit-row">
+            <input type="submit" value="Войти">
+        </div>
+        
+        {% if form.errors %}
+        <p class="errornote">Неверное имя пользователя или пароль.</p>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
