@@ -28,6 +28,9 @@
         <option value="$MODULE_DIR$/services/templates" />
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/static" />
+        <option value="$MODULE_DIR$/campaigns/templates" />
+        <option value="$MODULE_DIR$/leads/templates" />
+        <option value="$MODULE_DIR$/contracts/templates" />
       </list>
     </option>
   </component>

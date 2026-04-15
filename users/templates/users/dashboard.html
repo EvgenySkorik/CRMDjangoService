@@ -7,10 +7,12 @@
 
 <hr>
 
-<h2>Навигация</h2>
-<ul>
-    <li><a href="/admin/">Админ-панель</a></li>
-    <li><a href="{% url 'users:logout' %}">Выйти</a></li>
+    <h2>Навигация</h2>
+    <ul>
+        <li><a href="{% url 'services:list' %}">Услуги</a></li>
+        <li><a href="{% url 'campaigns:list' %}">Рекламные кампании</a></li>
+        <li><a href="/admin/">Админ-панель</a></li>
+        <li><a href="{% url 'users:logout' %}">Выйти</a></li>
 </ul>
 
 <p><em>Остальные разделы появятся позже.</em></p>
