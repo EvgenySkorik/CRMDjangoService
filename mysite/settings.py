@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'campaigns.apps.CampaignsConfig',
     'leads.apps.LeadsConfig',
+    'contracts.apps.ContractsConfig',
+    'customers.apps.CustomersConfig',
 
 ]
 
@@ -116,6 +118,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 AUTH_USER_MODEL = 'users.User'
 
