@@ -24,5 +24,5 @@ class Customer(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата активации')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.lead.last_name} {self.lead.first_name}"

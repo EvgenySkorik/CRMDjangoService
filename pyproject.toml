@@ -6,5 +6,47 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "django>=6.0.4",
+    "django-stubs>=6.0.2",
+    "mypy>=1.20.1",
     "pillow>=12.2.0",
+    "pylint>=4.0.5",
+    "pylint-django>=2.7.0",
 ]
+
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[[tool.mypy.overrides]]
+module = "mysite.settings"
+ignore_errors = true
+
+[tool.django-stubs]
+django_settings_module = "mysite.settings"
+
+
+[tool.pylint.main]
+load-plugins = ["pylint_django"]
+django-settings-module = "mysite.settings"
+ignore = ["migrations", "tests", "__pycache__", ".venv"]
+ignore-paths = [
+    ".*/migrations/.*",
+    ".*/tests\\.py",
+    ".*/__pycache__/.*",
+    ".*/\\.venv/.*",
+]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.messages_control]
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "too-few-public-methods",
+    "too-many-ancestors",
+    "no-member",
+    "duplicate-code",
+]
+

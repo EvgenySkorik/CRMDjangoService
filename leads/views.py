@@ -35,4 +35,3 @@ class LeadDeleteView(DeleteView):
     model = Lead
     template_name = 'leads/lead-delete.html'
     success_url = reverse_lazy('leads:list')
-

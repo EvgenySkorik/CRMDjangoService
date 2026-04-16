@@ -8,7 +8,7 @@
             {% for cam in campaigns %}
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
                 <a href="{% url 'campaigns:detail' pk=cam.pk %}" class="text-decoration-none link-dark">{{ cam.name }}</a>
-                <p>Лидов: {{ cam.leads_count }} | Активных клиентов: {{ cam.customers_count }} | Соотношение контрактов к затратам: {{ cam.profit|default_if_none:"-" }}</p>
+                <p>Лидов: {{ cam.leads_count }} | Активных клиентов: {{ cam.customers_count }} | Соотношение контрактов к затратам: {% if cam.get_roi %}{{ cam.get_roi }}%{% else %}-{% endif %}</p>
             </li>
             {% endfor %}
         </ul>

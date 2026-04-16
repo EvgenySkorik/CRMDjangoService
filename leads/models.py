@@ -21,5 +21,5 @@ class Lead(models.Model):
         related_name='leads'
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.last_name} {self.first_name} {self.middle_name}".strip()

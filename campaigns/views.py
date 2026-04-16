@@ -1,5 +1,5 @@
-from django.db.models import Count
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
+from django.db.models import Count, Q, Sum, QuerySet
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .forms import CampaignForm
@@ -39,12 +39,13 @@ class CampaignDeleteView(DeleteView):
 
 
 class CampaignStatisticView(ListView):
-    model = Campaign
-    template_name = 'campaigns/campaign-statistic.html'
-    context_object_name = 'campaigns'
+    model: type[Campaign] = Campaign
+    template_name: str = 'campaigns/campaign-statistic.html'
+    context_object_name: str = 'campaigns'
 
-    # def get_queryset(self):
-    #     return Campaign.objects.annotate(
-    #         leads_count=Count('leads'),
-    #         customers_count=Count('leads', filter=Q(leads__is_active=True))
-    #     )
+    def get_queryset(self) -> QuerySet[Campaign]:
+        return Campaign.objects.annotate(
+            leads_count=Count('leads'),
+            customers_count=Count('leads', filter=Q(leads__customer__isnull=False)),
+            total_income=Sum('leads__customer__contract__amount')
+        )

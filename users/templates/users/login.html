@@ -1,30 +1,26 @@
-{% extends "admin/base_site.html" %}
-{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-{% block content %}
-<div id="content-main">
-    <h2>Вход в CRM систему</h2>
-    
-    <form method="post" action="{% url 'users:login' %}">
-        {% csrf_token %}
-        
-        <div class="form-row">
-            <label for="id_username">Имя пользователя:</label>
-            <input type="text" name="username" autofocus required id="id_username">
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card px-5 py-5" id="form1">
+                <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">Войти</button>
+                </form>
+            </div>
         </div>
-        
-        <div class="form-row">
-            <label for="id_password">Пароль:</label>
-            <input type="password" name="password" required id="id_password">
-        </div>
-        
-        <div class="submit-row">
-            <input type="submit" value="Войти">
-        </div>
-        
-        {% if form.errors %}
-        <p class="errornote">Неверное имя пользователя или пароль.</p>
-        {% endif %}
-    </form>
+    </div>
 </div>
-{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

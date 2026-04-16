@@ -5,6 +5,7 @@ from campaigns.models import Service
 
 class Contract(models.Model):
     """Модель контракта"""
+
     class Meta:
         verbose_name = 'Контракт'
         verbose_name_plural = 'Контракты'
@@ -25,6 +26,5 @@ class Contract(models.Model):
         verbose_name='Сумма'
     )
 
-
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name

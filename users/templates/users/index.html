@@ -18,10 +18,10 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body">
                 <h5 class="card-title fw-bold">
-                    <a href="/ads/" class="link-dark text-decoration-none">Рекламных компаний</a>
+                    <a href="{% url 'campaigns:list' %}" class="link-dark text-decoration-none">Рекламных компаний</a>
                 </h5>
                 <i class="fas fa-ad float-end"></i>
-                <p class="card-text fw-bold fs-1">{{ advertisements_count }}</p>
+                <p class="card-text fw-bold fs-1">{{ campaigns_count }}</p>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body">
                 <h5 class="card-title fw-bold">
-                    <a href="/leads/" class="link-dark text-decoration-none">Лидов</a>
+                    <a href="{% url 'leads:list' %}" class="link-dark text-decoration-none">Лидов</a>
                 </h5>
                 <i class="fas fa-user-clock float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ leads_count }}</p>
@@ -40,7 +40,7 @@
         <div class="card border-light shadow">
             <div class="card-body" style="background: #eee">
                 <h5 class="card-title fw-bold">
-                    <a href="/customers/" class="link-dark text-decoration-none">Активных клиентов</a>
+                    <a href="{% url 'customers:list' %}" class="link-dark text-decoration-none">Активных клиентов</a>
                 </h5>
                 <i class="fas fa-user-check float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ customers_count }}</p>

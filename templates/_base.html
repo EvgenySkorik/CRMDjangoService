@@ -43,16 +43,17 @@
             </a></li>
             {% endif %}
             {% if perms.customers.view_customer %}
-            <li><a href="/customers/" class="bar-item text-decoration-none px-3 py-3 d-block">
+            <li><a href="{% url 'customers:list' %}" class="bar-item text-decoration-none px-3 py-3 d-block">
                 <span><i class="fas fa-user-check"></i></span><span class="px-1"> Активные клиенты</span>
             </a></li>
             {% endif %}
             <li>
                 <hr>
             </li>
-            <li><a href="/accounts/logout" class="bar-item text-decoration-none px-3 py-3 d-block">
+            <li><a href="{% url 'users:logout' %}" class="bar-item text-decoration-none px-3 py-3 d-block">
                 <span><i class="fas fa-sign-out-alt"></i></span><span class="px-1"> Выход</span>
             </a></li>
+
         </ul>
     </div>
     <div class="content px-3 pt-4">
