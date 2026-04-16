@@ -11,6 +11,12 @@ class CampaignListView(ListView):
     model = Campaign
     context_object_name = 'campaigns'
 
+    def get_queryset(self) -> QuerySet[Campaign]:
+        return (
+            Campaign.objects
+            .select_related('service')
+        )
+
 
 class CampaignDetailView(DetailView):
     template_name = 'campaigns/campaign-detail.html'

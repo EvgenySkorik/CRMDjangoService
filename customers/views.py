@@ -1,3 +1,4 @@
+from django.db.models import QuerySet
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -32,6 +33,8 @@ class CustomerListView(ListView):
     template_name = 'customers/customers-list.html'
     context_object_name = 'customers'
 
+    def get_queryset(self) -> QuerySet[Customer]:
+        return Customer.objects.select_related('lead', 'contract')
 
 class CustomerDetailView(DetailView):
     model = Customer

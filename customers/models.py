@@ -5,7 +5,7 @@ from leads.models import Lead
 
 
 class Customer(models.Model):
-    """Модель клиента"""
+    """Модель активного клиента"""
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'

@@ -1,3 +1,4 @@
+from django.db.models import QuerySet
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -9,6 +10,9 @@ class LeadListView(ListView):
     template_name = 'leads/leads-list.html'
     model = Lead
     context_object_name = 'leads'
+
+    def get_queryset(self) -> QuerySet[Lead]:
+        return Lead.objects.select_related('campaign')
 
 
 class LeadDetailView(DetailView):
