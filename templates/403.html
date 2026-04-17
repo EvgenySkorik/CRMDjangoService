@@ -1,0 +1,12 @@
+{% extends "_base.html" %}
+
+{% block title %}Доступ запрещён{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="text-danger">⛔ Доступ запрещён (403)</h2>
+    <p>У вас нет прав для выполнения этого действия.</p>
+    <hr>
+    <a href="{% url 'users:dashboard' %}" class="btn btn-primary">На главную</a>
+</div>
+{% endblock %}

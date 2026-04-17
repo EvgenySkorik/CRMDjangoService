@@ -141,3 +141,11 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
+
+
+HANDLER403 = 'mysite.views.handler403'
+
+
+FIXTURE_DIRS = [
+    BASE_DIR / 'fixtures',
+]
