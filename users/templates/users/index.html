@@ -7,7 +7,11 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body bg-gray-900">
                 <h5 class="card-title fw-bold">
-                    <a href="{% url 'services:list' %}" class="link-dark text-decoration-none">Услуг</a>
+                    {% if perms.services.view_service %}
+                        <a href="{% url 'services:list' %}" class="link-dark text-decoration-none">Услуг</a>
+                    {% else %}
+                        <span class="text-muted">Услуг</span>
+                    {% endif %}
                 </h5>
                 <i class="fas fa-microchip float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ services_count }}</p>
@@ -18,7 +22,11 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body">
                 <h5 class="card-title fw-bold">
-                    <a href="{% url 'campaigns:list' %}" class="link-dark text-decoration-none">Рекламных компаний</a>
+                    {% if perms.campaigns.view_campaign %}
+                        <a href="{% url 'campaigns:list' %}" class="link-dark text-decoration-none">Рекламных компаний</a>
+                    {% else %}
+                        <span class="text-muted">Рекламных компаний</span>
+                    {% endif %}
                 </h5>
                 <i class="fas fa-ad float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ campaigns_count }}</p>
@@ -29,7 +37,11 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body">
                 <h5 class="card-title fw-bold">
-                    <a href="{% url 'leads:list' %}" class="link-dark text-decoration-none">Лидов</a>
+                    {% if perms.leads.view_lead %}
+                        <a href="{% url 'leads:list' %}" class="link-dark text-decoration-none">Лидов</a>
+                    {% else %}
+                        <span class="text-muted">Лидов</span>
+                    {% endif %}
                 </h5>
                 <i class="fas fa-user-clock float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ leads_count }}</p>
@@ -40,7 +52,11 @@
         <div class="card border-light shadow">
             <div class="card-body" style="background: #eee">
                 <h5 class="card-title fw-bold">
-                    <a href="{% url 'customers:list' %}" class="link-dark text-decoration-none">Активных клиентов</a>
+                    {% if perms.customers.view_customer %}
+                        <a href="{% url 'customers:list' %}" class="link-dark text-decoration-none">Активных клиентов</a>
+                    {% else %}
+                        <span class="text-muted">Активных клиентов</span>
+                    {% endif %}
                 </h5>
                 <i class="fas fa-user-check float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ customers_count }}</p>

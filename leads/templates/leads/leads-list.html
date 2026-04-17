@@ -13,7 +13,9 @@
                 <a href="{% url 'leads:detail' pk=lead.pk %}" class="text-decoration-none link-dark">{{ lead.last_name }} {{ lead.first_name }} {{ lead.middle_name }}</a>
 
                 <div>
+                    {% if perms.customers.add_customer %}
                     <a href="{% url 'customers:create_from_lead' lead.pk %}" class="btn btn-success">Активировать</a>
+                    {% endif %}
                     <a href="{% url 'leads:delete' pk=lead.pk %}" class="btn btn-danger">Удалить</a>
                 </div>
             </li>

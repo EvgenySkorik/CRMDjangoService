@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import QuerySet
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -7,7 +8,8 @@ from .forms import CustomerForm
 from .models import Customer
 
 
-class CustomerCreateView(CreateView):
+class CustomerCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'customers.add_customer'
     model = Customer
     form_class = CustomerForm
     template_name = 'customers/customer-create.html'
@@ -28,7 +30,8 @@ class CustomerCreateView(CreateView):
         return initial
 
 
-class CustomerListView(ListView):
+class CustomerListView(PermissionRequiredMixin, ListView):
+    permission_required = 'customers.view_customer'
     model = Customer
     template_name = 'customers/customers-list.html'
     context_object_name = 'customers'
@@ -36,13 +39,15 @@ class CustomerListView(ListView):
     def get_queryset(self) -> QuerySet[Customer]:
         return Customer.objects.select_related('lead', 'contract')
 
-class CustomerDetailView(DetailView):
+class CustomerDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'customers.view_customer'
     model = Customer
     template_name = 'customers/customer-detail.html'
     context_object_name = 'customer'
 
 
-class CustomerUpdateView(UpdateView):
+class CustomerUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'customers.change_customer'
     model = Customer
     form_class = CustomerForm
     template_name = 'customers/customer-update.html'
@@ -50,7 +55,8 @@ class CustomerUpdateView(UpdateView):
     success_url = reverse_lazy('customers:list')
 
 
-class CustomerDeleteView(DeleteView):
+class CustomerDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'customers.delete_customer'
     model = Customer
     template_name = 'customers/customer-delete.html'
     context_object_name = 'customer'
