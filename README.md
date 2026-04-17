@@ -8,14 +8,20 @@
 
 ## Установка
 1. ```bash
-   git clone https://github.com/EvgenySkorik/CRM-Django.git
-   cd CRM-Django
+   git clone https://github.com/EvgenySkorik/CRMDjangoService.git
+   cd CRMDjangoService
    ```
-2. `cp .env.example .env`
+2. ```bash
+    cp .env.example .env
+   ```
 
-3.`docker compose up -d --build`
-4.`docker exec -it crm_web uv run python manage.py createsuperuser`
-5. `http://localhost:8000`
+3. ```bash
+    docker compose up -d --build`
+   ```
+4. ```bash
+    docker exec -it crm_web uv run python manage.py createsuperuser`
+   ```
+5. http://localhost:8000
 
 
 ## Функционал
@@ -29,5 +35,5 @@
 `python manage.py test`
 
 ## Pylint/MyPy
-`pylint .`
-`mypy .`
+- `pylint .`
+- `mypy .`
