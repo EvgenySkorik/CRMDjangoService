@@ -1,10 +1,9 @@
 from django.contrib.auth.models import Group
-
-from campaigns.models import Campaign
-from users.models import User
 from django.test import TestCase
 from django.urls import reverse
 
+from campaigns.models import Campaign
+from users.models import User
 from services.models import Service
 
 
@@ -72,7 +71,6 @@ class CampaignListViewTestCase(TestCase):
         self.assertRedirects(response, reverse('campaigns:list'))
         self.assertEqual(Campaign.objects.count(), count_before + 1)
         self.assertTrue(Campaign.objects.filter(name='НОВАЯ КОМПАНИЯ').exists())
-
 
     def test_delete_view_campaign(self):
         """Проверяем удаление компании"""

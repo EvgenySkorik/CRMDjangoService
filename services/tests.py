@@ -1,8 +1,8 @@
 from django.contrib.auth.models import Group
-from users.models import User
 from django.test import TestCase
 from django.urls import reverse
 
+from users.models import User
 from services.models import Service
 
 
