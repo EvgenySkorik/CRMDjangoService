@@ -40,7 +40,7 @@
 
 ##Структура проекта
 text
-.
+'
 ├── campaigns/      # Рекламные кампании
 ├── contracts/      # Контракты
 ├── customers/      # Клиенты
@@ -54,3 +54,4 @@ text
 ├── docker-compose.yaml
 ├── Dockerfile
 └── pyproject.toml
+'
