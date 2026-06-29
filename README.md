@@ -39,18 +39,18 @@
 - `mypy .`
 
 ## Структура проекта
-'''
-├── campaigns/      # Рекламные кампании
-├── contracts/      # Контракты
-├── customers/      # Клиенты
-├── leads/          # Лиды
-├── services/       # Услуги
-├── users/          # Пользователи и роли
-├── mysite/         # Настройки Django
-├── templates/      # HTML-шаблоны
-├── static/         # CSS, JS
-├── fixtures/       # Тестовые данные
+```
+├── campaigns/              # Рекламные кампании
+├── contracts/              # Контракты
+├── customers/              # Клиенты
+├── leads/                  # Лиды
+├── services/               # Услуги
+├── users/                  # Пользователи и роли
+├── mysite/                 # Настройки Django
+├── templates/              # HTML-шаблоны
+├── static/                 # CSS, JS
+├── fixtures/               # Тестовые данные
 ├── docker-compose.yaml
 ├── Dockerfile
 └── pyproject.toml
-'''
+```
